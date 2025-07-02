@@ -15,6 +15,7 @@ node {
 
 node {
     stage('Gobal Variable') {
+        echo(author())
         echo(author.name())
         echo(author.channel())
     }
