@@ -1,30 +1,36 @@
 @Library("belajar-jenkins-shared-library@main") _
 
-import programmerzamannow.jenkins.Output;
+pipeline {
+    agent any
 
-node {
-    stage('Hello World') {
-        hello.world()
-    }
-}
-node {
-    stage('Hello Groovys') {
-        Output.hello(this, 'Groovy')
-    }
-}
+    stages {
+        stage('Hello') {
+            steps {
+                script {
+                    hello.world()
+                }
+            }
+        }
 
-node {
-    stage('Gobal Variable') {
-        echo(author())
-        echo(author.name())
-        echo(author.channel())
-    }
-}
+        stage('Use Class') {
+            steps {
+                script {
+                    import programmerzamannow.jenkins.Output
+                    Output.hello(this, 'Groovy Declarative')
+                }
+            }
+        }
 
-node {
-    stage ('Maven Build'){
-        steps{
-            script {
+        stage('Global Variable') {
+            steps {
+                echo author()
+                echo author.name()
+                echo author.channel()
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
                 maven('clean compile')
             }
         }
