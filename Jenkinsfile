@@ -27,5 +27,5 @@ node {
     // stage("Maven Compile"){
     //     maven(["clean", "compile","test"])
     // }
- 
+}
   
