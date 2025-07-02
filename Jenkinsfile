@@ -1,7 +1,9 @@
 @Library("belajar-jenkins-shared-library@main") _
 import programmerzamannow.jenkins.Output
 
-mavenPipeline()
+pznPipeline([
+    type: 'maven'
+])
 
 // node {
 //     stage('Hello World') {
