@@ -15,6 +15,10 @@ node {
         echo author.name()
         echo author.channel()
     }
+
+    stage("Maven Compile"){
+        maven(["clean", "compile","test"])
+    }
  
     // stage('Maven Build') {
     //     // Only run if Maven wrapper exists
