@@ -12,3 +12,10 @@ node {
         Output.hello(this, 'Groovy')
     }
 }
+
+node {
+    stage('Gobal Variable') {
+        echo(author.name())
+        echo(author.channel())
+    }
+}
