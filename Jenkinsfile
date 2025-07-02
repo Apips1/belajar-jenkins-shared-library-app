@@ -24,6 +24,12 @@ node {
         ])
     }
 
+    stage("Library Resources"){
+        def config = libraryResource("config/build.json")
+        echo(config)
+
+    }
+
     // stage("Maven Compile"){
     //     maven(["clean", "compile","test"])
     // }
