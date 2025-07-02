@@ -15,19 +15,14 @@ node {
         echo author.name()
         echo author.channel()
     }
-     stage('Debug Maven') {
-        // Debug information
-        echo "Current directory: ${pwd()}"
-        if (isUnix()) {
-            sh 'ls -la'
-            sh 'ls -la .mvn/ || echo "No .mvn directory"'
-        } else {
-            bat 'dir'
-            bat 'dir .mvn\\ || echo "No .mvn directory"'
-        }
-    }
-
+ 
     stage('Maven Build') {
-        maven('clean compile')
+        // Only run if Maven wrapper exists
+        if (fileExists('mvnw.cmd') || fileExists('mvnw')) {
+            maven('clean compile')
+        } else {
+            echo "No Maven wrapper found. Make sure your project has mvnw.cmd"
+            error("Maven wrapper not found")
+        }
     }
 }
