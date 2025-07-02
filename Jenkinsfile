@@ -1,37 +1,39 @@
 @Library("belajar-jenkins-shared-library@main") _
 import programmerzamannow.jenkins.Output
 
-node {
-    stage('Hello World') {
-        hello.world()
-    }
+mavenPipeline()
 
-    stage('Hello Groovy') {
-        Output.hello(this, 'Groovy')
-    }
+// node {
+//     stage('Hello World') {
+//         hello.world()
+//     }
 
-    stage('Global Variable') {
-        echo author()
-        echo author.name()
-        echo author.channel()
-    }
+//     stage('Hello Groovy') {
+//         Output.hello(this, 'Groovy')
+//     }
 
-    stage("Hello Person")
-    {
-        hello.person([
-            firstName: 'Afif',
-            lastName: 'Nugroho',
-        ])
-    }
+//     stage('Global Variable') {
+//         echo author()
+//         echo author.name()
+//         echo author.channel()
+//     }
 
-    stage("Library Resources"){
-        def config = libraryResource("config/build.json")
-        echo(config)
+//     stage("Hello Person")
+//     {
+//         hello.person([
+//             firstName: 'Afif',
+//             lastName: 'Nugroho',
+//         ])
+//     }
 
-    }
+//     stage("Library Resources"){
+//         def config = libraryResource("config/build.json")
+//         echo(config)
 
-    // stage("Maven Compile"){
-    //     maven(["clean", "compile","test"])
-    // }
-}
+//     }
+
+//     // stage("Maven Compile"){
+//     //     maven(["clean", "compile","test"])
+//     // }
+// }
   
