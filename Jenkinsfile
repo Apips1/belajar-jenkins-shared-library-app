@@ -20,3 +20,13 @@ node {
         echo(author.channel())
     }
 }
+
+node {
+    stage ('Maven Build'){
+        steps{
+            script {
+                maven('clean compile')
+            }
+        }
+    }
+}
