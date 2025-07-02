@@ -9,6 +9,6 @@ node {
 }
 node {
     stage('Hello Groovys') {
-        Output.hello('Groovy')
+        Output.hello(this, 'Groovy')
     }
 }
