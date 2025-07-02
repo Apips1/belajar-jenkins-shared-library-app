@@ -16,17 +16,16 @@ node {
         echo author.channel()
     }
 
-    stage("Maven Compile"){
-        maven(["clean", "compile","test"])
+    stage("Hello Person")
+    {
+        hello.person([
+            firstName: 'Afif',
+            lastName: 'Nugroho',
+        ])
     }
- 
-    // stage('Maven Build') {
-    //     // Only run if Maven wrapper exists
-    //     if (fileExists('mvnw.cmd') || fileExists('mvnw')) {
-    //         maven('clean compile')
-    //     } else {
-    //         echo "No Maven wrapper found. Make sure your project has mvnw.cmd"
-    //         error("Maven wrapper not found")
-    //     }
+
+    // stage("Maven Compile"){
+    //     maven(["clean", "compile","test"])
     // }
-}
+ 
+  
