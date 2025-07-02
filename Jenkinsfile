@@ -15,6 +15,17 @@ node {
         echo author.name()
         echo author.channel()
     }
+     stage('Debug Maven') {
+        // Debug information
+        echo "Current directory: ${pwd()}"
+        if (isUnix()) {
+            sh 'ls -la'
+            sh 'ls -la .mvn/ || echo "No .mvn directory"'
+        } else {
+            bat 'dir'
+            bat 'dir .mvn\\ || echo "No .mvn directory"'
+        }
+    }
 
     stage('Maven Build') {
         maven('clean compile')
